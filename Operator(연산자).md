@@ -228,7 +228,9 @@
   > bit 값을 왼쪽으로 이동(빈 자리는 0으로 대입)  
   > ( x << n ) = x * 2^n  
   > Integer.MAX_VALUE's bit exp는 1111111111111111111111111111111 : 총 32자리 숫자  
-  > 즉, n이 32 이상이면, ( x << n ) = x * 2^(n % 32)  
+  > 즉, n이 32 이상이면, ( x << n ) = x * 2^(n % 32)
+
+    ![Left Shift Operator](https://github.com/MinjuKang727/Java/assets/108849480/8a08c033-ebc3-4502-a36d-4a3f02babaac)
 
     ```java
     int x = 64;
@@ -240,6 +242,7 @@
     System.out.println("x's bit exp: " + Integer.toBinaryString(x));
     System.out.println("x << n: " + Integer.toBinaryString(x << n));
     ```
+    
     <details>
         <summary>Output(출력)</summary>
     
@@ -256,6 +259,8 @@
   > 이동에 따른 빈공간은 음수의 경우엔 1, 양수인 경우엔 0으로 채움  
   > ( x >> n ) = x / 2^n  
   > n이 32이상이면, ( x >> n ) = x / 2^(n % 32)  
+
+    ![Right Shift Operator](https://github.com/MinjuKang727/Java/assets/108849480/1385bafc-59d6-43ef-9a16-368e61d40306)
 
     ```java
     int x = 64;
@@ -301,7 +306,12 @@
 
 - **Unsigned Shift Operator** (>>>)
   > bit 값을 오른쪽으로 이동(밀어버린 부분을 전부 0으로 챙워줌.)  
-  > 음수를 보장하지 않습니다.  
+  > 음수를 보장하지 않습니다.
+
+    ![Unsigned Shift Operator(Positive Integer)](https://github.com/MinjuKang727/Java/assets/108849480/b76c5b43-7750-4067-9281-2873bb352b2d)
+    ![Unsigned Shift Operator(Negative Integer)](https://github.com/MinjuKang727/Java/assets/108849480/c50793ac-d780-466f-92c9-025a05293b2b)
+
+
 
     ```java
     int x = 64;
@@ -597,7 +607,17 @@
   </details>
   <br>
 
+### 비트 연산자의 진리표(truth table)
+| X | Y | X\|Y | X&amp;Y | X^Y |
+|:-:|:-:|:----:|:-------:|:---:|
+| 0 | 0 |   0  |    0    |  0  |
+| 0 | 1 |   1  |    0    |  1  |
+| 1 | 0 |   1  |    0    |  1  |
+| 1 | 1 |   1  |    1    |  0  |
+
 [*시프트 연산자는 앞부분 설명 참고*](#shift-operator시프트-연산자)
+
+
 
 
 ## Logical Operator(논리 연산자)
@@ -888,7 +908,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
     
 - **+=**
-  > 왼쪽의 피연산자에 오른쪽의 피연산자를 더하면서 대입함.
+  > 왼쪽의 피연산자에 오른쪽의 피연산자를 더한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
   
   ```java
   int x = 120;
@@ -912,7 +932,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **-=**
-  > 왼쪽의 피연산자에 오른쪽의 피연산자를 빼면서 대입함.
+  > 왼쪽의 피연산자에서 오른쪽의 피연산자를 뺀 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
   
   ```java
   int x = 120;
@@ -937,13 +957,13 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - ***=**
-  > 왼쪽의 피연산자에 오른쪽의 피연산자를 곱하면서 대입함.
+  > 왼쪽의 피연산자에 오른쪽의 피연산자를 곱한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
   
   ```java
   int x = 120;
   System.out.println("x = " + x);
   x *= 2;
-  System.out.println("x *= 1 >> x = " + x);
+  System.out.println("x *= 2 >> x = " + x);
   
   int y = 10;
   System.out.println("y = " + y);
@@ -955,37 +975,320 @@ System.out.println("results1 != result2 = " + (result1 != result2));
       <summary>Output(출력)</summary>
   
       x = 120
-      x *= 1 >> x = 120
+      x *= 2 >> x = 240
       y = 10
-      x *= y >> y = 1200
+      x *= y >> y = 2400
   </details>
 <br>
 
 - **/=**
-  > 왼쪽의 피연산자에 오른쪽의 피연산자를 나누면서 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자로 나눈 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
   
   ```java
   int x = 120;
   System.out.println("x = " + x);
-  x *= 1;
-  System.out.println("x *= 1 >> x = " + x);
+  x /= 2;
+  System.out.println("x /= 2 >> x = " + x);
   
   int y = 10;
   System.out.println("y = " + y);
-  x *= y;
-  System.out.println("x *= y >> y = " + x);
+  x /= y;
+  System.out.println("x /= y >> y = " + x);
   ```
   
   <details>
       <summary>Output(출력)</summary>
   
       x = 120
-      x *= 1 >> x = 120
+      x /= 2 >> x = 60
       y = 10
-      x *= y >> y = 1200
+      x /= y >> y = 6
   </details>
 <br>
 
+- **%=**
+  > 왼쪽의 피연산자를 오른쪽의 피연산자로 나눈 후, 그 나머지를 왼쪽의 피연산자에 대입함.
+  
+  ```java
+  int x = 120;
+  System.out.println("x = " + x);
+  x %= 7;
+  System.out.println("x %= 7 >> x = " + x);
+
+  x = 120;
+  int y = 10;
+  System.out.println("x = " + x + ", y = " + y);
+  x %= y;
+  System.out.println("x %= y >> y = " + x);
+  ```
+  
+  <details>
+      <summary>Output(출력)</summary>
+  
+      x = 120
+      x %= 7 >> x = 1
+      x = 120, y = 10
+      x %= y >> y = 0
+  </details>
+<br>
+
+- **&=**
+  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 AND 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  
+  ```java
+  int x = 0B00001111;
+  int y = 0B00010101;
+
+  System.out.printf("%14s","x = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(x)).replace(" ", "0"));
+  System.out.printf("%14s","y = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(y)).replace(" ", "0"));
+  x &= y;
+  System.out.printf("%14s","x &= y >> x = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(x)).replace(" ", "0"));
+  ```
+  
+  <details>
+      <summary>Output(출력)</summary>
+  
+                x = 00001111
+                y = 00010101
+      x &= y >> x = 00000101
+  </details>
+<br>
+
+- **|=**
+  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 OR 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  
+  ```java
+  int x = 0B00001111;
+  int y = 0B00010101;
+
+  System.out.printf("%14s","x = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(x)).replace(" ", "0"));
+  System.out.printf("%14s","y = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(y)).replace(" ", "0"));
+  x |= y;
+  System.out.printf("%14s","x |= y >> x = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(x)).replace(" ", "0"));
+  ```
+  
+  <details>
+      <summary>Output(출력)</summary>
+
+                x = 00001111
+                y = 00010101
+      x |= y >> x = 00011111
+  </details>
+<br>
+
+- **^=**
+  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 XOR 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  
+  ```java
+  int x = 0B00001111;
+  int y = 0B00010101;
+
+  System.out.printf("%14s","x = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(x)).replace(" ", "0"));
+  System.out.printf("%14s","y = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(y)).replace(" ", "0"));
+  x ^= y;
+  System.out.printf("%14s","x ^= y >> x = ");
+  System.out.println(String.format("%8s",Integer.toBinaryString(x)).replace(" ", "0"));
+  ```
+  
+  <details>
+      <summary>Output(출력)</summary>
+
+                x = 00001111
+                y = 00010101
+      x ^= y >> x = 00011010
+  </details>
+<br>
+
+- **<<=**
+  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  
+  ```java
+  int x = 0B00001111;
+
+  System.out.printf("%15s","x = ");
+  System.out.println(String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+  x <<= 3;
+  System.out.printf("%-11s","x <<= 3;  ");
+  System.out.println("x = " + String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+  ```
+  
+  <details>
+      <summary>Output(출력)</summary>
+
+                 x = 00000000000000000000000000001111
+      x <<= 3;   x = 00000000000000000000000001111000
+  </details>
+<br>
+
+  ```java
+  int x = -0B00001111;
+
+  System.out.printf("%15s","x = ");
+  System.out.println(String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+  x <<= 3;
+  System.out.printf("%-11s","x <<= 3;  ");
+  System.out.println("x = " + String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+  ```
+  
+  <details>
+      <summary>Output(출력)</summary>
+
+                 x = 11111111111111111111111111110001
+      x <<= 3;   x = 11111111111111111111111110001000
+  </details>
+<br>
+
+- **>>=**
+  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  
+  ```java
+  int x = 0B00001111;
+
+  System.out.printf("%15s","x = ");
+  System.out.println(String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+  x >>= 3;
+  System.out.printf("%-11s","x >>= 3;  ");
+  System.out.println("x = " + String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+  ```
+  
+  <details>
+      <summary>Output(출력)</summary>
+
+                 x = 00000000000000000000000000001111
+      x >>= 3;   x = 00000000000000000000000000000001
+  </details>
+<br>
+
+  ```java
+  int x = -0B00001111;
+
+  System.out.printf("%15s","x = ");
+  System.out.println(String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+  x >>= 3;
+  System.out.printf("%-11s","x >>= 3;  ");
+  System.out.println("x = " + String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+  ```
+  
+  <details>
+      <summary>Output(출력)</summary>
+
+                 x = 11111111111111111111111111110001
+      x >>= 3;   x = 11111111111111111111111111111110
+  </details>
+<br>
+
+- **>>>=**
+  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  
+    ```java
+    int x = 0B00001111;
+  
+    System.out.printf("%16s","x = ");
+    System.out.println(String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+    x >>>= 3;
+    System.out.printf("%-12s","x >>>= 3;  ");
+    System.out.println("x = " + String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+    ```
+    
+    <details>
+        <summary>Output(출력)</summary>
+  
+                   x = 00000000000000000000000000001111
+        x >>= 3;   x = 00000000000000000000000000000001
+    </details>
+  <br>
+  
+    ```java
+    int x = -0B00001111;
+  
+    System.out.printf("%16s","x = ");
+    System.out.println(String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+    x >>>= 3;
+    System.out.printf("%-12s","x >>>= 3;  ");
+    System.out.println("x = " + String.format("%32s",Integer.toBinaryString(x)).replace(" ", "0"));
+    ```
+    
+    <details>
+        <summary>Output(출력)</summary>
+  
+                    x = 11111111111111111111111111110001
+        x >>>= 3;   x = 00011111111111111111111111111110
+    </details>
+  <br>
+
+## 기타 연산자
+- **Ternary Operator**(삼항 연산자)
+  > 자바에서 유일하게 피연산자를 세 개나 가지는 조건 연산자  
+
+  ```md
+  조건식 ? 반환값1(true) : 반환값2(false)
+  ```
+  > 물음표(?) 앞의 조건식에 따라  
+  > 결괏값이 **참**(**true**) 이면 **반환값 1**을 반환  
+  > 결괏값이 **거짓**(**false**)이면 **반환값2**를 반환
+
+    
+    ```java
+    int num1 = 5, num2 = 7;
+    int result;
+    
+    result = (num1 > num2) ? num1 :num2;
+    System.out.println("5와 7 중 더 큰 정수는 " + result + "입니다.");
+    
+    result = (num1 < num2) ? num1 :num2;
+    System.out.println("5와 7 중 더 작은 정수는 " + result + "입니다.");
+    ```
+    
+    <details>
+      <summary>Output(출력)</summary>
+    
+      5와 7 중 더 큰 정수는 7입니다.
+      5와 7 중 더 작은 정수는 5입니다.
+    </details>
+
+- **instanceof Operator**(instanceof 연산자)
+  > 찬조 변수가 참조하고 있는 인스턴스의 실제 타입을 반환해 줍니다.
+  > **해당 객체가 어떤 클래스나 인터페이스로부터 생성되었는지를 판별**
+  
+  ```java
+  INSTANCE_NAME instanceof CLASS_OR_INTERFACE_NAME
+  ```
+  > 왼쪽 피연산자인 인스턴스(INSTANCE_NAME)가 오른쪽 피연산자인 클래스나 인터페이스(CLASS_OR_INTERFACE_NAME)로부터 생성되었으면 `true`를 반환
+  > 그렇지 않으면 `false`를 반환
+
+  ```java
+  static class A {}
+  static class B extends A {}
+  
+  public static void main(String[] args) {
+  
+      A a = new A();
+      B b = new B();
+  
+      System.out.println("a instanceof A : " + Boolean.toString(a instanceof A));
+      System.out.println("b instanceof A : " + Boolean.toString(b instanceof A));
+      System.out.println("a instanceof B : " + Boolean.toString(a instanceof B)); // true
+      System.out.println("b instanceof B : " + Boolean.toString(b instanceof B)); // true
+  }
+  ```
+
+  <details>
+      <summary>Output(출력)</summary>
+    
+      a instanceof A : true
+      b instanceof A : true
+      a instanceof B : false
+      b instanceof B : true
+  </details>
+<br>
 
 ---
 
