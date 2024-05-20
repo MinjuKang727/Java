@@ -60,19 +60,19 @@ public class Hash {
         myHash.saveData("Lee", "30000");
         myHash.saveData("James", "15000");
         myHash.saveData("Denny", "5000");
-        
-        System.out.println("Lee 키의 값 : " + myHash.getData("Lee"));  // 30000
-        System.out.println("James 키의 값 : " + myHash.getData("James"));  // 15000
-        System.out.println("Denny 키의 값 : " + myHash.getData("Denny"));  // 5000
-     // 저장하지 않은 Kang의 값 가져오기
-        System.out.println("Kang 키의 값 : " + myHash.getData("Kang"));  // null
+                                                                            // Output
+        System.out.println("Lee 키의 값 : " + myHash.getData("Lee"));       // Lee 키의 값 : 30000
+        System.out.println("James 키의 값 : " + myHash.getData("James"));   // James 키의 값 : 15000
+        System.out.println("Denny 키의 값 : " + myHash.getData("Denny"));   // Denny 키의 값 : 5000
+        // 저장하지 않은 Kang의 값 가져오기
+        System.out.println("Kang 키의 값 : " + myHash.getData("Kang"));     // Kang 키의 값 : null
 
         // Collision 유도
-     // 저장하지 않은 Lion의 값 가져오기
-        System.out.println("Lion 키의 값 : " + myHash.getData("Lion"));  // 30000
-     // 저장되어 있는 Lee 키와 첫번째 알파벳이 같은 Lily를 키로 36000 저장
+        // 저장하지 않은 Lion의 값 가져오기
+        System.out.println("Lion 키의 값 : " + myHash.getData("Lion"));     // Lion 키의 값 : 30000
+        // 저장되어 있는 Lee 키와 첫번째 알파벳이 같은 Lily를 키로 36000 저장
         myHash.saveData("Lily", "36000");
-        System.out.println("Lily 키의 값 : " + myHash.getData("Lily"));  // 36000
-        System.out.println("Lee 키의 값 : " + myHash.getData("Lee"));  // 36000
+        System.out.println("Lily 키의 값 : " + myHash.getData("Lily"));     // Lily 키의 값 : 36000
+        System.out.println("Lee 키의 값 : " + myHash.getData("Lee"));       // Lee 키의 값 : 36000
     }
 }
