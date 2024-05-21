@@ -58,9 +58,13 @@
 - **저장**, **삭제**, **읽기**가 빈번한 경우
 - 캐쉬 구현
 
-## 해시 구현하기
-```java
- // 기본적인 해시 테이블 구현
+## 해시([구현하기✅](https://github.com/MinjuKang727/Java/blob/main/code/Hash.java))
+<details>
+   <summary>구현 코드</summary>
+
+   <code>
+      <pre>
+// 기본적인 해시 테이블 구현
 public class Hash {
   
     // Hash table
@@ -135,22 +139,25 @@ public class Hash {
         System.out.println("Lee 키의 값 : " + myHash.getData("Lee"));    
     }
 }
-```
-##### Output
-```java
-Lee 키의 값 : 30000
-James 키의 값 : 15000
-Denny 키의 값 : 5000
-Kang 키의 값 : null
-Lion 키의 값 : 30000
-Lily 키의 값 : 36000
-Lee 키의 값 : 36000
-```
-*저장하지 않은 Lion의 값이 30000으로 출력됨.  
-Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반환*
+      </pre>
+   </code>
+   <b>Output</b>
+   <code>
+      <pre>
+         Lee 키의 값 : 30000
+         James 키의 값 : 15000
+         Denny 키의 값 : 5000
+         Kang 키의 값 : null
+         Lion 키의 값 : 30000
+         Lily 키의 값 : 36000
+         Lee 키의 값 : 36000
+      </pre>
+   </code>
+   <i>저장하지 않은 Lion의 값이 30000으로 출력됨.
+      Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반환</i>
+</details>
 
 ## Collision(충돌)
-*위에서 작성한 코드는 해시의 기본 원리를 이해하기 위해 작성된 방법입니다.*
 
 > 위의 코드에서 Hash클래스의 hashfunction()메서드 부분을 보면,  
 매개변수 key의 첫번째 문자를 배열의 크기로 나눈 나머지를 인덱스로 사용합니다.  
@@ -163,7 +170,7 @@ Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반�
 - 저장되는 데이터 양이 해시 테이블의 크기(Size)보다 큼.
 
 ### 충돌 해결하기
-#### 1. Chaining 기법 ([구현하기✅](https://github.com/MinjuKang727/Java/blob/ea88115c20c5e8e00851d4bb403623863de41df9/Hash_Chaining.java))
+#### 1. Chaining 기법 ([구현하기✅](https://github.com/MinjuKang727/Java/blob/main/code/Hash_Chaining.java))
 - 개방 해싱 또는 Open Hashing 기법 중 하나
   - 해시 테이블 저장 공간 외에 공간을 활용하는 기법
 - 충돌이 발생했을 때, 연결 리스트(Linked List) 자료구조를 사용해서 해결하는 방법
@@ -173,7 +180,7 @@ Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반�
 Chaining 기법으로 충돌 해결하기 | [DEV_제임스
 ](https://kang-james.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%95%B4%EC%8B%9CHASH-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
 
-#### 2. Linear Probing 기법([구현하기✅](https://github.com/MinjuKang727/Java/blob/bce24a854dd79d3b2a45d63ef14402774668bd14/Hash_LinearProbing.java))
+#### 2. Linear Probing 기법([구현하기✅](https://github.com/MinjuKang727/Java/blob/618ee2c33960ba02fb110e322fa43cda1e5fc21a/code/Hash_LinearProbing.java))
 - 폐쇄 해싱 또는 Closing Hashing 기법 중 하나
   - 해시 테이블 저장 공간 안에서 충돌 문제를 해결하는 기법
 - 충돌이 발생했을 때, 해당 해시 주소(index)의 다음 주소(index)부터 맨 처음까지 순회하며 빈 공간을 찾는 방식
