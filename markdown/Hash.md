@@ -60,11 +60,9 @@
 
 ## 해시([구현하기✅](https://github.com/MinjuKang727/Java/blob/main/code/Hash.java))
 <details>
-   <summary>구현 코드</summary>
-
-<code>
-   <pre>// 기본적인 해시 테이블 구현
-public class Hash {
+    <summary>구현 코드</summary>
+<code><pre>// 기본적인 해시 테이블 구현
+ public class Hash {
   
     // Hash table
     public Slot[] hashTable; // 배열 형태로 선언
@@ -137,23 +135,17 @@ public class Hash {
         System.out.println("Lily 키의 값 : " + myHash.getData("Lily"));
         System.out.println("Lee 키의 값 : " + myHash.getData("Lee"));    
     }
-}
-</pre>
-</code>
+}</pre></code>
 <b>Output</b>
-<code>
-<pre>
-Lee 키의 값 : 30000
+<code><pre>Lee 키의 값 : 30000
 James 키의 값 : 15000
 Denny 키의 값 : 5000
 Kang 키의 값 : null
 Lion 키의 값 : 30000
 Lily 키의 값 : 36000
-Lee 키의 값 : 36000
-</pre>
-</code>
+Lee 키의 값 : 36000</pre></code>
 <i>저장하지 않은 Lion의 값이 30000으로 출력됨.<br>
-   Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반환</i>
+Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반환</i>
 </details>
 
 ## Collision(충돌)
