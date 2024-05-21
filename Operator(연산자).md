@@ -224,115 +224,156 @@
 > 자료의 가공을 위해 오른쪽 또는 왼쪽으로 이동하여 값에 대한 변화를 일으키는 연산자  
 > `<<`, `>>`, `>>>`  
 
-- **Left Shift Operator(왼쪽 쉬프트 연산)** (<<)
-  > bit 값을 왼쪽으로 이동(빈 자리는 0으로 대입)  
-  > ( x << n ) = x * 2^n  
-  > Integer.MAX_VALUE's bit exp는 1111111111111111111111111111111 : 총 32자리 숫자  
-  > 즉, n이 32 이상이면, ( x << n ) = x * 2^(n % 32)
+### 비트의 음수 표현
+#### 2진수로 음수를 표현하는 방법(3가지)
+> 최상위 비트(가장 좌측의 비트)를 부호를 표현하는 비트로 사용
+> 최상위 비트가 0이면 양수
+> 최상위 비트가 1이면 음수
 
-    ![Left Shift Operator](https://github.com/MinjuKang727/Java/assets/108849480/8a08c033-ebc3-4502-a36d-4a3f02babaac)
+- 부호 및 크기 방식
+- 1진 보수방식
+- 2진 보수방식
 
-    ```java
-    int x = 64;
-    int n = 2;
-    
-    System.out.println("== 왼쪽 쉬프트 연산자 ==");
-    System.out.println("x << n = " + (x << n));  // 곱셈,  (x * 2^n)
-    System.out.println("x << 34 = " + (x << 34));  // x * 2^(n % 32)
-    System.out.println("x's bit exp: " + Integer.toBinaryString(x));
-    System.out.println("x << n: " + Integer.toBinaryString(x << n));
-    ```
-    
-    <details>
-        <summary>Output(출력)</summary>
-    
-        == 왼쪽 쉬프트 연산자 ==
-        x << n = 256
-        x << 34 = 256
-        x's bit exp: 1000000
-        x << n: 100000000
-    </details>
-    <br>
+<br>
+##### 1. 부호 및 크기 방식
+> 최상위 비트는 부호를 나머지 비트는 크기를 나타내는 방식
+> 0의 두가지 표현 방식이 나오며 비트 연산의 어려움이 있음.
 
-- **Right Shift Operator(오른쪽 쉬프트 연산)** (>>)
-  > bit 값을 오른쪽으로 이동  
-  > 이동에 따른 빈공간은 음수의 경우엔 1, 양수인 경우엔 0으로 채움  
-  > ( x >> n ) = x / 2^n  
-  > n이 32이상이면, ( x >> n ) = x / 2^(n % 32)  
+```
+001001 + 101001 = 110010
+<!-- 십진법 계산 -->
+9 + (-9) = -18  // 계산이 제대로 되지 않는다.
+```
+[부호 및 크기 방식- 0의 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/Extra_bit_for_sign.png)
+[부호 및 크기 방식- ±6의 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/Extra_bit_for_sign2.png)
 
-    ![Right Shift Operator](https://github.com/MinjuKang727/Java/assets/108849480/1385bafc-59d6-43ef-9a16-368e61d40306)
+#### 2. 1진 보수 방법
+> **1의 보수** : 어떤 수를 2ⁿ-1로 만들어 주는 수
+> 이진수에서 모든 비트의 숫자를 반전시키면 얻을 수 있다.
+*어떤 수와 반전시킨 수를 더하면 모든 비트가 1로 채워진 2ⁿ-1 이 됨.*
+> 비트 연산을 가능하게 하는 방법이지만 역시 0의 표현 방식이 두가지가 나온다.
 
-    ```java
-    int x = 64;
-    int n = 2;
-    
-    System.out.println("== 오른쪽 쉬프트 연산자(양수 피연산자) ==");
-    System.out.println("x >> n = " + (x >> n));  // 나눗셈,  (x / 2^n)
-    System.out.println("x >> 34 = " + (x >> 34));  // x / 2^(n % 32)
-    System.out.println("x's bit exp: " + Integer.toBinaryString(x));
-    System.out.println("x >> n: " + Integer.toBinaryString(x >> n));
-    ```
-    <details>
-        <summary>Output(출력)</summary>
-    
-        == 오른쪽 쉬프트 연산자 ==
-        x >> n = 16
-        x >> 34 = 16
-        x's bit exp: 1000000
-        x >> n: 10000
-    </details>
-    <br>
+[1진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1(2).png)
+[1진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1.png)
 
-    ```java
-    int x = -64;
-    int n = 2;
-    
-    System.out.println("== 오른쪽 쉬프트 연산자(음수 피연산자) ==");
-    System.out.println("x >> n = " + (x >> n));  // 나눗셈,  (x / 2^n)
-    System.out.println("x >> 34 = " + (x >> 34));  // x / 2^(n % 32)
-    System.out.println("x's bit exp: " + Integer.toBinaryString(x));
-    System.out.println("x >> n: " + Integer.toBinaryString(x >> n));
-    ```
-    <details>
-        <summary>Output(출력)</summary>
-    
-        == 오른쪽 쉬프트 연산자(음수 피연산자) ==
-        x >> n = -16
-        x >> 34 = -16
-        x's bit exp: 11111111111111111111111111000000
-        x >> n: 11111111111111111111111111110000
-    </details>
-    <br>
+#### 2진 보수 방법
+> **2의 보수** : 어떤 수를 2ⁿ으로 만들어 주는 수로 1의 보수를 취한 후, 1을 더해준다.
+> 0의 표현 방법이 하나(= 0000)
+> 비트 연산도 가능
+> 대부분의 프로그래밍 언어에서 사용하는 방식
 
-- **Unsigned Shift Operator** (>>>)
-  > bit 값을 오른쪽으로 이동(밀어버린 부분을 전부 0으로 챙워줌.)  
-  > 음수를 보장하지 않습니다.
+[2진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2.png)
+[2진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2(2).png)
 
-    ![Unsigned Shift Operator(Positive Integer)](https://github.com/MinjuKang727/Java/assets/108849480/b76c5b43-7750-4067-9281-2873bb352b2d)
-    ![Unsigned Shift Operator(Negative Integer)](https://github.com/MinjuKang727/Java/assets/108849480/c50793ac-d780-466f-92c9-025a05293b2b)
+### Left Shift Operator(왼쪽 쉬프트 연산) (<<)
+> bit 값을 왼쪽으로 이동(빈 자리는 0으로 대입)  
+> ( x << n ) = x * 2ⁿ  
+> Integer.MAX_VALUE's bit exp는 1111111111111111111111111111111 : 총 32자리 숫자  
+> 즉, n이 32 이상이면, ( x << n ) = x * 2^(n % 32)
+
+![Left Shift Operator](https://github.com/MinjuKang727/Java/blob/main/lib/Left_Shift_Operator.png)
+
+```java
+int x = 64;
+int n = 2;
+
+System.out.println("== 왼쪽 쉬프트 연산자 ==");
+System.out.println("x << n = " + (x << n));  // 곱셈,  (x * 2ⁿ)
+System.out.println("x << 34 = " + (x << 34));  // x * 2^(n % 32)
+System.out.println("x's bit exp: " + Integer.toBinaryString(x));
+System.out.println("x << n: " + Integer.toBinaryString(x << n));
+```
+
+<details>
+    <summary>Output(출력)</summary>
+
+    == 왼쪽 쉬프트 연산자 ==
+    x << n = 256
+    x << 34 = 256
+    x's bit exp: 1000000
+    x << n: 100000000
+</details>
+<br>
+
+### Right Shift Operator(오른쪽 쉬프트 연산) (>>)
+> bit 값을 오른쪽으로 이동  
+> 이동에 따른 빈공간은 음수의 경우엔 1, 양수인 경우엔 0으로 채움  
+> ( x >> n ) = x / 2ⁿ  
+> n이 32이상이면, ( x >> n ) = x / 2^(n % 32)  
+
+![Right Shift Operator](https://github.com/MinjuKang727/Java/blob/main/lib/Right_Shift_Operator.png)
+
+```java
+int x = 64;
+int n = 2;
+
+System.out.println("== 오른쪽 쉬프트 연산자(양수 피연산자) ==");
+System.out.println("x >> n = " + (x >> n));  // 나눗셈,  (x / 2ⁿ)
+System.out.println("x >> 34 = " + (x >> 34));  // x / 2^(n % 32)
+System.out.println("x's bit exp: " + Integer.toBinaryString(x));
+System.out.println("x >> n: " + Integer.toBinaryString(x >> n));
+```
+<details>
+    <summary>Output(출력)</summary>
+
+    == 오른쪽 쉬프트 연산자 ==
+    x >> n = 16
+    x >> 34 = 16
+    x's bit exp: 1000000
+    x >> n: 10000
+</details>
+<br>
+
+```java
+int x = -64;
+int n = 2;
+
+System.out.println("== 오른쪽 쉬프트 연산자(음수 피연산자) ==");
+System.out.println("x >> n = " + (x >> n));  // 나눗셈,  (x / 2ⁿ)
+System.out.println("x >> 34 = " + (x >> 34));  // x / 2^(n % 32)
+System.out.println("x's bit exp: " + Integer.toBinaryString(x));
+System.out.println("x >> n: " + Integer.toBinaryString(x >> n));
+```
+<details>
+    <summary>Output(출력)</summary>
+
+    == 오른쪽 쉬프트 연산자(음수 피연산자) ==
+    x >> n = -16
+    x >> 34 = -16
+    x's bit exp: 11111111111111111111111111000000
+    x >> n: 11111111111111111111111111110000
+</details>
+<br>
+
+### Unsigned Shift Operator (>>>)
+> bit 값을 오른쪽으로 이동(밀어버린 부분을 전부 0으로 챙워줌.)  
+> 음수를 보장하지 않습니다.
+
+![Unsigned Shift Operator(Positive Integer)](https://github.com/MinjuKang727/Java/blob/main/lib/Unsigned_Shift_Operator_positive.png)
+![Unsigned Shift Operator(Negative Integer)](https://github.com/MinjuKang727/Java/blob/main/lib/Unsinged_Shift_Operator_negative.png)
 
 
 
-    ```java
-    int x = 64;
-    int n = 2;
-    
-    System.out.println("== Unsigned 쉬프트 연산자 ==");
-    System.out.println("x >>> n = " + (x >>> n));
-    System.out.println("x >>> 34 = " + (x >>> 34));
-    System.out.println("x's bit exp: " + Integer.toBinaryString(x));
-    System.out.println("x >>> n: " + Integer.toBinaryString(x >>> n));
-    ```
-    <details>
-        <summary>Output(출력)</summary>
-    
-        == Unsigned 쉬프트 연산자 ==
-        x >>> n = 16
-        x >>> 34 = 16
-        x's bit exp: 1000000
-        x >>> n: 10000
-    </details>
-    <br>
+```java
+int x = 64;
+int n = 2;
+
+System.out.println("== Unsigned 쉬프트 연산자 ==");
+System.out.println("x >>> n = " + (x >>> n));
+System.out.println("x >>> 34 = " + (x >>> 34));
+System.out.println("x's bit exp: " + Integer.toBinaryString(x));
+System.out.println("x >>> n: " + Integer.toBinaryString(x >>> n));
+```
+<details>
+    <summary>Output(출력)</summary>
+
+    == Unsigned 쉬프트 연산자 ==
+    x >>> n = 16
+    x >>> 34 = 16
+    x's bit exp: 1000000
+    x >>> n: 10000
+</details>
+<br>
 
 ## Relational Operator(비교 연산자)
 > 변수나 상수의 값을 비교할 때 쓰이는 연산자  
@@ -1293,6 +1334,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 ---
 
 ##### 참고 사이트
+[[java] 비트의 음수 표현과 shift 연산자](https://velog.io/@shjung53/%EB%B9%84%ED%8A%B8%EC%9D%98-%EC%9D%8C%EC%88%98-%ED%91%9C%ED%98%84%EA%B3%BC-shift-%EC%97%B0%EC%82%B0%EC%9E%90)
 [[Java] 자바 연산자 (Java Operator)](https://phantom.tistory.com/19)  
 [[Java] 쉬프트 연산자 <<, <<<](https://93jpark.tistory.com/132)  
 [[JAVA] 비트 쉬프트(Shift)연산자 : << , >> , >>>](https://chans-note.tistory.com/3)  
