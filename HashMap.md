@@ -6,7 +6,7 @@
   - 데이터의 Key값이 해시 함수를 통해서 변환된 간단한 정수
   - 정수로 변환된 해시는 배열의 `인덱스`, `위치`, `데이터 값`을 저장하거나 검색할 때 활용
 
-<img alt="데이터의 key값이 해시 함수를 통해 해시 값으로 변환된 과정 이미지" src="https://github.com/MinjuKang727/Java/assets/108849480/6306c5aa-a075-43f3-9f32-783dba33eab5" width="80%">
+<img alt="데이터의 key값이 해시 함수를 통해 해시 값으로 변환된 과정 이미지" src="https://github.com/MinjuKang727/Java/blob/main/lib/Hash_Function.png" width="80%">
 
 데이터의 key값이 해시 함수를 통해 해시 값으로 변환된 과정 이미지 | 출처 : [DEV_제임스](https://kang-james.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%95%B4%EC%8B%9CHASH-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
 
@@ -41,7 +41,7 @@
 ### 3. Hashing(해싱)
 > 해시 함수에서 해시를 출력하고, 테이블에 저장하는 과정까지의 행위
 
-<img alt="Hashing(해싱)" src="https://github.com/MinjuKang727/Java/assets/108849480/2470824b-6af5-44ce-9061-9fd58ce90355" width="80%">
+<img alt="Hashing(해싱)" src="https://github.com/MinjuKang727/Java/blob/main/lib/Hashing.png" width="80%">
 
 해싱(Hashing) | [DEV_제임스](https://kang-james.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%95%B4%EC%8B%9CHASH-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
 
@@ -169,7 +169,7 @@ Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반�
   - 해시 테이블 저장 공간 외에 공간을 활용하는 기법
 - 충돌이 발생했을 때, 연결 리스트(Linked List) 자료구조를 사용해서 해결하는 방법
 
-<img alt="Chaining 기법으로 충돌 해결하기" src="https://github.com/MinjuKang727/Java/assets/108849480/3bfb4032-de9b-4ddd-b2f4-5213ec7d57fc" width="80%">
+<img alt="Chaining 기법으로 충돌 해결하기" src="https://github.com/MinjuKang727/Java/blob/main/lib/Chaining.png" width="80%">
 
 Chaining 기법으로 충돌 해결하기 | [DEV_제임스
 ](https://kang-james.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%95%B4%EC%8B%9CHASH-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
