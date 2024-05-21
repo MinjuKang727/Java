@@ -62,9 +62,8 @@
 <details>
    <summary>구현 코드</summary>
 
-   <code>
-      <pre>
-// 기본적인 해시 테이블 구현
+<code>
+   <pre>// 기본적인 해시 테이블 구현
 public class Hash {
   
     // Hash table
@@ -139,22 +138,22 @@ public class Hash {
         System.out.println("Lee 키의 값 : " + myHash.getData("Lee"));    
     }
 }
-      </pre>
-   </code>
-   <b>Output</b>
-   <code>
-      <pre>
-         Lee 키의 값 : 30000
-         James 키의 값 : 15000
-         Denny 키의 값 : 5000
-         Kang 키의 값 : null
-         Lion 키의 값 : 30000
-         Lily 키의 값 : 36000
-         Lee 키의 값 : 36000
-      </pre>
-   </code>
-   <i>저장하지 않은 Lion의 값이 30000으로 출력됨.
-      Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반환</i>
+</pre>
+</code>
+<b>Output</b>
+<code>
+<pre>
+Lee 키의 값 : 30000
+James 키의 값 : 15000
+Denny 키의 값 : 5000
+Kang 키의 값 : null
+Lion 키의 값 : 30000
+Lily 키의 값 : 36000
+Lee 키의 값 : 36000
+</pre>
+</code>
+<i>저장하지 않은 Lion의 값이 30000으로 출력됨.
+   Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반환</i>
 </details>
 
 ## Collision(충돌)
