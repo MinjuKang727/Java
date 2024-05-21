@@ -209,7 +209,8 @@ Chaining 기법으로 충돌 해결하기 | [DEV_제임스
 - Key-Value 형태로 저장
 - 중복 Key 값 허용하지 않음
 - 중복 Value 값 허용
-
+- [사용법 링크🔗](https://github.com/MinjuKang727/Java/blob/main/markdown/HashMap.md)
+  
 ### HashSet
 - Set 인터페이스 구현체
 - 객체 그 자체 저장
