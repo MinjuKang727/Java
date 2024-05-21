@@ -18,24 +18,34 @@
 
 ## 알아둘 용어
 ### 1. Hash Function(해시 함수)
-   > 임의의 데이터를 고정된 길이의 값으로 리턴해주는 함수
+> 임의의 데이터를 고정된 길이의 값(Key)으로 리턴해주는 함수
 - 입력받은 데이터를 해시 값으로 출력시키는 알고리즘
 - 해시값은 알고리즘에 따라 다양한 결과를 보임.
   > 함수는 목적에 맞게 다양하게 설계되어야 함.  
   > `자료구조`, `캐시`, `검색`, `에러 검출`, `암호` 등으로 유용하게 사용됨.
-  
+
+#### 대표적인 해시 함수 종류
+- bit extraction : 적절한 위치의 비트를 추출
+- mid-square: 원소 제곱 후 적절한 위치의 비트를 추출
+- division: 해시 값 h(x) = x (mod m)
+- muliplication: 해시 값 h(x) = (xα (mod1)) × m
+   > m은 보통 테이블 사이즈, A는 0<α<1 인 상수
+
 ### 2. Hash Table(해시 테이블)
-  > 키 값의 연산에 의해 직접 접근이 가능한 데이터 구조
+  > 키 값의 연산에 의해 직접 접근이 가능한 데이터 구조(순차적으로 데이터 저장x)
 - **키(Key)와 값(Value)을 함께 저장**해 둔 데이터 구조
 *데이터가 행과 열로 구성된 표에 저장되는 것과 유사*
 - 테이블의 데이터를 저장할 때 위치는 무작위로 지정
   > 중간에 여유 공간이 발생할 수 있음.
+- 크기가 m인 해시 테이블을 T[0, ⋯, m - 1]이라고 할 때, 원소 x에 대한 모든 해시 값 h(x)은 {0, ⋯, m-1} 중 하나
+- 
 ### 추가 용어
 - **버킷**(Bucket) : 하나의 주소를 갖는 파일의 한 구역
   > 버킷의 크기는 같은 주소에 포함될 수 있는 레코드 수
+  > **= 엔트리**
 
 - **슬롯**(Slot) : 한 개의 레코드를 저장할 수 있는 공간
-  > 한 버킷 안에 여러 개의 슬롯이 있음.
+  > 한 버킷 안에 여러 개의 슬롯이 있음.(적어도 1개 이상)
 
 ### 3. Hashing(해싱)
 > 해시 함수에서 해시를 출력하고, 테이블에 저장하는 과정까지의 행위
@@ -46,6 +56,8 @@
 
 ## 해시 자료구조의 장·단점, 용도
 ### 장점
+> 순차적으로 데이터를 저장하지 않음.
+
 - 데이터 `저장`, `읽기` 속도가 빠름 (`검색` 속도가 빠름)
 - 해시는 키에 대한 데이터가 있는지 확인이 쉬움
 
@@ -149,12 +161,13 @@ Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반�
 </details>
 
 ## Collision(충돌)
-
 > 위의 코드에서 Hash클래스의 hashfunction()메서드 부분을 보면,  
 매개변수 key의 첫번째 문자를 배열의 크기로 나눈 나머지를 인덱스로 사용합니다.  
 하지만, 이는 **첫번째 문자가 동일한 서로 다른 key에 대해 동일한 인덱스를 반환**하므로  
 배열에서 같은 장소에 저장되고 이전에 저장된 데이터가 사라지게 됩니다.  
 이를 **Collision**(충돌)이 발생했다고 합니다.
+
+- 서로 다른 두 원소 x, y의 해시 값이 h(x) = h(y)이면 충돌
 
 ### 충돌이 발생되는 이유
 - 함수 알고리즘의 성능이 좋지 못함.
@@ -164,7 +177,7 @@ Lily의 값을 36000으로 저장하고 Lee의 값을 가져오자 36000을 반�
 #### 1. Chaining 기법 ([구현하기✅](https://github.com/MinjuKang727/Java/blob/main/code/Hash_Chaining.java))
 - 개방 해싱 또는 Open Hashing 기법 중 하나
   - 해시 테이블 저장 공간 외에 공간을 활용하는 기법
-- 충돌이 발생했을 때, 연결 리스트(Linked List) 자료구조를 사용해서 해결하는 방법
+- 충돌이 발생했을 때, **연결 리스트(Linked List)** 자료구조를 사용해서 해결하는 방법
 
 <img alt="Chaining 기법으로 충돌 해결하기" src="https://github.com/MinjuKang727/Java/blob/main/lib/Chaining.png" width="80%">
 
@@ -174,18 +187,40 @@ Chaining 기법으로 충돌 해결하기 | [DEV_제임스
 #### 2. Linear Probing 기법([구현하기✅](https://github.com/MinjuKang727/Java/blob/618ee2c33960ba02fb110e322fa43cda1e5fc21a/code/Hash_LinearProbing.java))
 - 폐쇄 해싱 또는 Closing Hashing 기법 중 하나
   - 해시 테이블 저장 공간 안에서 충돌 문제를 해결하는 기법
-- 충돌이 발생했을 때, 해당 해시 주소(index)의 다음 주소(index)부터 맨 처음까지 순회하며 빈 공간을 찾는 방식
+- 충돌이 발생했을 때, 해당 해시 주소(index)의 **다음** 주소(index)부터 맨 처음까지 순회하며 **빈 공간을 찾는 방식**
 - 저장 공간 활용도를 높이기 위한 기법
+
+#### 3. Rehashing
+- 여러 해시 함수를 사용하는 방식
   
 ## 시간 복잡도
 - 충돌이 없는 일반적인 경우 : **O(1)**
   > 키를 통해 바로 저장과 검색을 하여 값을 구하기 때문입니다.
+  - 삽입 : O(1)
+  - 삭제 : O(1)
+  - 탐색 : O(1)
 - 만약 최악의 경우, 모든 index에서 충돌이 발생하는 경우 : **O(n)**
 
+## Java에서 해시
+> `HashMap`, `HashSet`을 통해 자주 사용
+
+### HashMap
+- Map 인터페이스 구현체
+- Key-Value 형태로 저장
+- 중복 Key 값 허용하지 않음
+- 중복 Value 값 허용
+
+### HashSet
+- Set 인터페이스 구현체
+- 객체 그 자체 저장
+  > 객체가 Key 값이 되고 Value는 더미 객체를 사용한다.
+- 중복 허용하지 않음
+  - HashCode(), equal() 매서드를 이용하여 중복 체크
 ---
 
 #### References(참고 자료)
 [[COLLECTION] 이것만 알면 해시맵(HASHMAP) 정복 가능 - HASHMAP의 특징, 사용법 예제](https://reakwon.tistory.com/151)  
 [[Java] 자바 - HashMap 사용방법 (개념, 특징, 메소드 및 예제)](https://kadosholy.tistory.com/120)  
 [[자료구조] 해시(HASH) 알아보기](https://kang-james.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%95%B4%EC%8B%9CHASH-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)  
-[[Java] 해시맵(HashMap) 자료구조 정리](https://velog.io/@db_jam/Java-%ED%95%B4%EC%8B%9C%EB%A7%B5HashMap-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%A0%95%EB%A6%AC)
+[[Java] 해시맵(HashMap) 자료구조 정리](https://velog.io/@db_jam/Java-%ED%95%B4%EC%8B%9C%EB%A7%B5HashMap-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%A0%95%EB%A6%AC)  
+[[자료구조/Java] 해시](https://velog.io/@suk13574/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0JAVA-%ED%95%B4%EC%8B%9C)
