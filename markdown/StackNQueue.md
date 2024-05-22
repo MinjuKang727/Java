@@ -958,7 +958,7 @@ import java.util.Stack;
 <br>
 
 ### 검색
-- int **`search(Object o)`  
+- int **`search(Object o)`**  
   > Stack에서 해당 객체가 top에서부터 몇 번째에 존재하는지 알려줌.  
     *(1 ~ stack.size())*
   > 존재하지 않으면 `-1` 반환
