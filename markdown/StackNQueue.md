@@ -5,7 +5,7 @@
 
 <br>
 
-## Queue(큐)
+## [Queue(큐)](https://github.com/MinjuKang727/Java/blob/main/markdown/Queue.md)
   > 최근 사용 문서, 인쇄 작업 대기 목록, 버퍼(buffer) 등의 기능을 구현할 때 활용
 - 선입선출(**FIFO**; First In First Out)구조 : 먼저 들어간 데이터를 먼저 꺼내는 구조
 <br>
