@@ -1,11 +1,12 @@
-# 스택(Stack)과 큐(Queue)
+# [스택(Stack)](https://github.com/MinjuKang727/Java/blob/main/markdown/Stack.md)과 [큐(Queue)](https://github.com/MinjuKang727/Java/blob/main/markdown/Queue.md)
+*스크롤이 너무 길어 Stack과 Queue를 구분해서 보고 싶다면 위의 제목을 클릭하세요.*
 
 ![스택과 큐(Stack and Queue)](https://github.com/MinjuKang727/Java/blob/main/lib/Stack_and_Queue.png)  
 |   Stack과 Queue
 
 <br>
 
-## [Queue(큐)](https://github.com/MinjuKang727/Java/blob/main/markdown/Queue.md)
+## Queue(큐)
   > 최근 사용 문서, 인쇄 작업 대기 목록, 버퍼(buffer) 등의 기능을 구현할 때 활용
 - 선입선출(**FIFO**; First In First Out)구조 : 먼저 들어간 데이터를 먼저 꺼내는 구조
 <br>
