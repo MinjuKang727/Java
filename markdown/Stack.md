@@ -490,3 +490,11 @@ import java.util.Stack;
 |           |   poll()  | pollFirst() |
 |           |   peek()  | peekFirst() |
 |   peek()  |           |  peekLast() |
+
+---
+
+##### References(참고 자료)
+[[자료구조] 스택 (Stack)](https://kwin0825.tistory.com/52)  
+[[JAVA / 자바] Stack(스택) 클래스 사용법 및 함수(Method) 정리](https://kwin0825.tistory.com/156)  
+[[Java] 스택(Stack)과 큐(Queue)](https://pridiot.tistory.com/68)  
+[[JAVA / 자바] Stack(스택) 클래스 사용법 및 함수(Method) 정리](https://kwin0825.tistory.com/156)  
