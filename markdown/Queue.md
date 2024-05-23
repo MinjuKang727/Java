@@ -599,3 +599,6 @@ Queue<자료형>변수명 = new LinkedList<>();
 
 ---
 ##### References(참고 자료)
+[[JAVA / 자바] Queue(큐) 클래스 사용법 및 함수(Method) 정리](https://kwin0825.tistory.com/157)  
+[[Java] 스택(Stack)과 큐(Queue)](https://pridiot.tistory.com/68)  
+[[Java] Queue offer vs add](https://iamkdh.tistory.com/96)  
