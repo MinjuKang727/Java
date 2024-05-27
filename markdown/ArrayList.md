@@ -19,11 +19,12 @@
 import java.util.ArrayList;
 ```
 
-### 객체 생성
+### 생성
 
 ```java
 ArrayList 객체명 = new ArrayList();
 ```
+> 기본 크기가 10인 배열 생성
 > 자료형을 선언해 주지 않으면, 자료형에 관계 없이 값 삽입 가능  
 
 ```java
@@ -54,11 +55,25 @@ public class arraylist {
   `null`도 삽입 가능***
 </details>
 
+<br>
+
 ```java
-ArrayList<자료형> 객체명 = new ArrayList<>();
+ArrayList 객체명 = new ArrayList(기본크기);
 ```
-> 지정한 자료형만 삽입 가능  
-> **(자바 J2SE 5.0 버전부터 객체를 포함하는 자료형을 명확하게 표현할 것을 권고하고 있다.👍)  
+> 기본 크기를 지정  
+*(배열이 다 차면 기본크기만큼 사이즈가 증가함)*
+
+<br>
+
+```java
+ArrayList<제네릭> 객체명 = new ArrayList<>();
+```
+> 배열 값의 자료형을 지정  
+> *(자바 J2SE 5.0 버전부터 객체를 포함하는 자료형을 명확하게 표현할 것을 권고하고 있다.👍)*  
+
+  - 제네릭(Generic)
+    - 컬렉션 객체를 생성할 때 저장되는 데이터의 타입을 미리 지정하는 기능
+    - 제네릭으로 지정한 타입 외에는 담길 수 없도록 함
 
 ```java
 import java.util.ArrayList;
@@ -116,7 +131,51 @@ public class arraylist {
     [1, 4, 0]
     1번 인덱스에 idx1가 들어왔을까? [1, idx1, 4, 0]
     ```
-	</details>
+  </details>
+
+  <br>
+
+- boolean **`addAll(배열)`**  
+  > 두 컬렉션을 합침
+
+  ```java
+  import java.util.ArrayList;
+
+  public class arrayList {
+      public static void main(String args[]) {
+          ArrayList<String> arrList1 = new ArrayList<>();
+        
+          arrList1.add("a");
+          arrList1.add("4");
+          arrList1.add("0");
+        
+          ArrayList<String> arrList2 = new ArrayList<>();
+      
+          arrList2.add("1");
+          arrList2.add("apple");
+          arrList2.add("banana");
+        
+          System.out.println("arrList1 = " + arrList1);
+          System.out.println("arrList2 = " + arrList2);
+        
+          System.out.println("arrList1.addAll(arrList2) = " + arrList1.addAll(arrList2));
+          System.out.println("arrList1 = " + arrList1);
+      }
+  }
+  ```
+  <details>
+    <summary>Output</summary>
+
+     ```
+     arrList1 = [a, 4, 0]
+     arrList2 = [1, apple, banana]
+     arrList1.addAll(arrList2) = true
+     arrList1 = [a, 4, 0, 1, apple, banana]
+     ```
+  </details>
+
+<br>
+
   
 ### 추출
 - **`get(int index)`**  
@@ -153,6 +212,86 @@ public class arraylist {
 
 <br>
 
+- int **`indexOf(VALUE)`**
+  > 배열에 `VALUE`가 존재하면 해당 값의 첫번째 `index`를 반환  
+  > 배열에 `VALUE`가 존재하지 않으면 `-1`을 반환  
+
+  ```java
+  import java.util.ArrayList;
+
+  public class arrayList {
+      public static void main(String args[]) {
+    
+        ArrayList<Integer> arrList = new ArrayList<>();
+      
+        arrList.add(1);
+        arrList.add(0);
+        arrList.add(2);
+        arrList.add(10);
+        arrList.add(-5);
+        arrList.add(123);
+    
+        System.out.println("arrList = " + arrList);
+    
+        System.out.println("arrList.indexOf(1) = " + arrList.indexOf(1));
+        System.out.println("arrList.indexOf(10) = " + arrList.indexOf(10));
+        System.out.println("arrList.indexOf(-1) = " + arrList.indexOf(-1));
+      }
+  }
+  ```
+  <details>
+    <summary>Output</summary>
+
+    ```
+    arrList = [1, 0, 2, 10, -5, 123]
+    arrList.indexOf(1) = 0
+    arrList.indexOf(10) = 3
+    arrList.indexOf(-1) = -1
+    ```
+  </details>
+
+<br>
+
+- **`lastIndexOf(VALUE)`**
+  > 배열에 `VALUE`가 존재하면 해당 값의 마지막 `index`를 반환  
+  > 배열에 `VALUE`가 존재하지 않으면 `-1`을 반환
+
+  ```java
+  import java.util.ArrayList;
+
+  public class arrayList {
+      public static void main(String args[]) {
+    
+        ArrayList<Integer> arrList = new ArrayList<>();
+    
+        arrList.add(1);
+        arrList.add(0);
+        arrList.add(2);
+        arrList.add(10);
+        arrList.add(-5);
+        arrList.add(0);
+        arrList.add(123);
+    
+        System.out.println("arrList = " + arrList);
+    
+        System.out.println("arrList.lastIndexOf(0) = " + arrList.lastIndexOf(0));
+        System.out.println("arrList.lastIndexOf(10) = " + arrList.lastIndexOf(10));
+        System.out.println("arrList.lastIndexOf(-1) = " + arrList.lastIndexOf(-1));
+      }
+  }
+  ```
+  <details>
+    <summary>Output</summary>
+
+    ```
+    arrList = [1, 0, 2, 10, -5, 0, 123]
+    arrList.lastIndexOf(0) = 5
+    arrList.lastIndexOf(10) = 3
+    arrList.lastIndexOf(-1) = -1
+    ```
+  </details>
+
+  
 ### 크기
 - int **`size()`**
   > ArrayList의 요소의 개수를 반환  
@@ -229,6 +368,56 @@ public class arraylist {
 
 <br>
 
+- boolean **`containsAll(v1, v2, ...)`**
+  > 배열에 매개변수의 모든 값이 포함되어 있으면 `true` 반환  
+  > 배열에 매개변수의 모든 값이 포함되어 있지 않으면 `false` 반환
+
+  ```java
+  import java.util.ArrayList;
+
+  public class arrayList {
+      public static void main(String args[]) {
+    
+        ArrayList<Integer> arrList1 = new ArrayList<>();
+    
+        arrList1.add(1);
+        arrList1.add(0);
+        arrList1.add(2);
+        arrList1.add(10);
+        arrList1.add(-5);
+        arrList1.add(123);
+    
+        ArrayList<Integer> arrList2 = new ArrayList<>();
+    
+        arrList2.add(10);
+        arrList2.add(0);
+    
+        System.out.println("arrList1 = " + arrList1);
+        System.out.println("arrList2 = " + arrList2);
+    
+        System.out.println("arrList1.containsAll(arrList2) = " + arrList1.containsAll(arrList2));
+      
+        arrList2.add(369);
+        arrList2.add(-55);
+        System.out.println("arrList2 = " + arrList2);
+        System.out.println("arrList1.containsAll(arrList2) = " + arrList1.containsAll(arrList2));
+      }
+  }
+  ```
+  <details>
+    <summary>Output</summary>
+
+    ```
+    arrList1 = [1, 0, 2, 10, -5, 123]
+    arrList2 = [10, 0]
+    arrList1.containsAll(arrList2) = true
+    arrList2 = [10, 0, 369, -55]
+    arrList1.containsAll(arrList2) = false
+    ```
+  </details>
+
+  <Br>
+  
 ### 삭제
 - **`remove(Object o)`**
   > 리스트에서 값이 `o`인 요소를 삭제 후,  
@@ -392,7 +581,144 @@ public class arraylist {
       ```
       ***`remove()`메서드의 매개변수를 인덱스가 아닌 요소로 보고 삭제를 한 것을 확인할 수 있다.***
     </details>
+    
     <br>
+    
+- boolean **`retainAll(배열)`**'  
+  > 매개변수로 준 `배열`의 원소와 일치하는 값을 제외한 모든 값을 삭제  
+
+  ```java
+  import java.util.ArrayList;
+  
+  public class arrayList {
+      public static void main(String args[]) {
+    
+          ArrayList<Integer> arrList1 = new ArrayList<>();
+        
+          arrList1.add(1);
+          arrList1.add(0);
+          arrList1.add(2);
+          arrList1.add(10);
+          arrList1.add(-5);
+          arrList1.add(123);
+        
+          ArrayList<Integer> arrList2 = new ArrayList<>();
+        
+          arrList2.add(3);
+          arrList2.add(10);
+          arrList2.add(5);
+          arrList2.add(-1);
+          arrList2.add(100);
+          arrList2.add(0);
+        
+          System.out.println("arrList1 = " + arrList1);
+          System.out.println("arrList2 = " + arrList2);
+        
+          System.out.println("arrList1.retainAll(arrList2) = " + arrList1.retainAll(arrList2));
+          System.out.println("arrList1 = " + arrList1);
+
+  	  System.out.println("arrList1.retainAll(arrList2) = " + arrList1.retainAll(arrList2));
+          System.out.println("arrList1 = " + arrList1);
+      }
+  }
+  ```
+  <details>
+    <summary>Output</summary>
+
+    ```
+    arrList1 = [1, 0, 2, 10, -5, 123]
+    arrList2 = [3, 10, 5, -1, 100, 0]
+    arrList1.retainAll(arrList2) = true
+    arrList1 = [0, 10]
+    arrList1.retainAll(arrList2) = false
+    arrList1 = [0, 10]
+    ```
+  </details>
+
+<br>
+
+- **`removeAll(배열)`**  
+  > 매개변수로 준 `배열`의 원소와 일치하는 값을 모두 삭제
+  > `retainAll()`메서드와 반대  
+
+  ```java
+  import java.util.ArrayList;
+  
+  public class arrayList {
+      public static void main(String args[]) {
+      
+          ArrayList<Integer> arrList1 = new ArrayList<>();
+        
+          arrList1.add(1);
+          arrList1.add(0);
+          arrList1.add(2);
+          arrList1.add(10);
+          arrList1.add(-5);
+          arrList1.add(123);
+        
+          ArrayList<Integer> arrList2 = new ArrayList<>();
+        
+          arrList2.add(3);
+          arrList2.add(10);
+          arrList2.add(5);
+          arrList2.add(-1);
+          arrList2.add(100);
+          arrList2.add(0);
+        
+          System.out.println("arrList1 = " + arrList1);
+          System.out.println("arrList2 = " + arrList2);
+        
+          System.out.println("arrList1.removeAll(arrList2) = " + arrList1.removeAll(arrList2));
+          System.out.println("arrList1 = " + arrList1);
+    
+          System.out.println("arrList1.removeAll(arrList2) = " + arrList1.removeAll(arrList2));
+          System.out.println("arrList1 = " + arrList1);
+      }
+  }
+  ```
+  <details>
+    <summary>Output</summary>
+
+    ```
+    arrList1 = [1, 0, 2, 10, -5, 123]
+    arrList2 = [3, 10, 5, -1, 100, 0]
+    arrList1.removeAll(arrList2) = true
+    arrList1 = [1, 2, -5, 123]
+    arrList1.removeAll(arrList2) = false
+    arrList1 = [1, 2, -5, 123]
+    ```
+  </details>
+
+- **`clear()`**
+  > 배열의 값을 모두 삭제
+
+  ```java
+  import java.util.ArrayList;
+
+  public class arrayList {
+      public static void main(String args[]) {
+    
+          ArrayList<Integer> arrList = new ArrayList<>();
+        
+          arrList.add(1);
+          arrList.add(0);
+          arrList.add(2);
+          arrList.add(10);
+        
+          System.out.println("arrList = " + arrList);
+          arrList.clear();
+          System.out.println("clear()메서드 사용 후, arrList = " + arrList);
+      }
+  }
+  ```
+  <details>
+    <summary>Output</summary>
+
+    ```
+    arrList = [1, 0, 2, 10]
+    clear()메서드 사용 후, arrList = []
+    ```
+  </details>
 
 ### 배열 to ArrayList
 - **`Arrays.asList(배열)`**
@@ -441,7 +767,43 @@ public class arraylist {
   </details>
   
 <br>
- 
+
+## ArrList to 배열
+- **`toArray()`**
+  > ArrayList 타입의 인스턴스를 일반 배열 타입으로 반환  
+  > 저장할 배열 타입에 맞춰 자동 형변환  
+  > 배열 크기 또한 자동으로 맞춰서 바꿔줌  
+
+  ```java
+  import java.util.ArrayList;
+  import java.util.Arrays;
+
+  public class arrayList {
+      public static void main(String args[]) {
+    
+          ArrayList<String> arrList = new ArrayList<>();
+        
+          arrList.add("1");
+          arrList.add("0");
+          arrList.add("2");
+          arrList.add("10");
+        
+          System.out.println("arrList = " + arrList);
+        
+          String[] strArr = new String[0];
+          System.out.println("strArr = " + Arrays.toString(arrList.toArray(strArr)));
+      }
+  }
+  ```
+  <details>
+    <summary>Output</summary>
+
+    ```
+    arrList = [1, 0, 2, 10]
+    strArr = [1, 0, 2, 10]
+    ```
+  </details>
+  
 ## 요소를 합쳐 문자열 만들기
 - **`String.join(String s, ArrayList arraylist)`**
   > 첫번째 매개변수는 구분자  
