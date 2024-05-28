@@ -15,9 +15,12 @@
 - **조건(삼항) 연산자** : `?`, `:` *(7순위)*
 - **대입 연산자** : `=`, `*=`, `/=`, `%=`, `+=`, `-=` *(8순위)*
 
+<br>
+
 ## Increment and Decrement Operators(증감 연산자)
-> 피연산자의 값을 1씩 증가 또는 감소시키는 연산자  
-> `x++`, `++x`, `x--`, `--x`  
+  > 피연산자의 값을 1씩 증가 또는 감소시키는 연산자  
+  > `x++`, `++x`, `x--`, `--x`  
+
 ##### ※ 증감 연산자가 변수 앞에 위치하느냐 변수 뒤에 위치하느냐에 따라 결과 값이 달라진다.
 
 - **후행(후위) 증가 연산자** (x++)
@@ -188,15 +191,15 @@
     </details>
     <br>
 
-*변수 x의 자료형이 int type이기 때문에 나눗셈 결과값도 int type으로 반환.
-∴ x ÷ 3 = 3.333...에서 소숫점 아랫부분을 버림하고 x / 3 = 3*
+*변수 x의 자료형이 int type이기 때문에 나눗셈 결과값도 int type으로 반환.  
+∴ x ÷ 3 = 3.333...에서 소숫점 아랫부분을 버림하고 x / 3 = 3*  
 
-- **나머지 연산자** (%)
+- **나머지 연산자** (%)  
   > 왼쪽 피연산자의 값을 오른쪽 피연산자의 값으로 나눈 나머지 값을 반환  
   > ( x % n )의 경우 x의 값에 관계 없이 결과값의 범위가 0 ~ n-1 이 됨.  
   >> ex) ( x % 7 ) 연산의 값의 범위는 0 ~ 6  
   
-  **결과값이 회귀하게 되어서 알고리즘 구현에 자주 사용되는 연산자**
+  **결과값이 회귀하게 되어서 알고리즘 구현에 자주 사용되는 연산자**  
 
     ```java
     int x = 1234;
@@ -220,24 +223,25 @@
     <br>
 
 ## Shift Operator(시프트 연산자)
-> bit단위의 연산 처리를 함.  
-> 자료의 가공을 위해 오른쪽 또는 왼쪽으로 이동하여 값에 대한 변화를 일으키는 연산자  
-> `<<`, `>>`, `>>>`  
+  > bit단위의 연산 처리를 함.  
+  > 자료의 가공을 위해 오른쪽 또는 왼쪽으로 이동하여 값에 대한 변화를 일으키는 연산자  
+  > `<<`, `>>`, `>>>`  
 
 ### 비트의 음수 표현
 #### 2진수로 음수를 표현하는 방법(3가지)
-> 최상위 비트(가장 좌측의 비트)를 부호를 표현하는 비트로 사용
-> 최상위 비트가 0이면 양수
-> 최상위 비트가 1이면 음수
+  > 최상위 비트(가장 좌측의 비트)를 부호를 표현하는 비트로 사용
+  > 최상위 비트가 0이면 양수
+  > 최상위 비트가 1이면 음수
 
 - 부호 및 크기 방식
 - 1진 보수방식
 - 2진 보수방식
 
 <br>
+
 ##### 1. 부호 및 크기 방식
-> 최상위 비트는 부호를 나머지 비트는 크기를 나타내는 방식
-> 0의 두가지 표현 방식이 나오며 비트 연산의 어려움이 있음.
+  > 최상위 비트는 부호를 나머지 비트는 크기를 나타내는 방식
+  > 0의 두가지 표현 방식이 나오며 비트 연산의 어려움이 있음.
 
 ```
 001001 + 101001 = 110010
@@ -248,19 +252,19 @@
 ![부호 및 크기 방식- ±6의 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/Extra_bit_for_sign2.png)
 
 #### 2. 1진 보수 방법
-> **1의 보수** : 어떤 수를 2ⁿ-1로 만들어 주는 수
-> 이진수에서 모든 비트의 숫자를 반전시키면 얻을 수 있다.
-*어떤 수와 반전시킨 수를 더하면 모든 비트가 1로 채워진 2ⁿ-1 이 됨.*
-> 비트 연산을 가능하게 하는 방법이지만 역시 0의 표현 방식이 두가지가 나온다.
+  > **1의 보수** : 어떤 수를 2ⁿ-1로 만들어 주는 수  
+  > 이진수에서 모든 비트의 숫자를 반전시키면 얻을 수 있다.  
+    *어떤 수와 반전시킨 수를 더하면 모든 비트가 1로 채워진 2ⁿ-1 이 됨.*  
+  > 비트 연산을 가능하게 하는 방법이지만 역시 0의 표현 방식이 두가지가 나온다.  
 
 ![1진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1(2).png)
 ![1진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1.png)
 
 #### 2진 보수 방법
-> **2의 보수** : 어떤 수를 2ⁿ으로 만들어 주는 수로 1의 보수를 취한 후, 1을 더해준다.
-> 0의 표현 방법이 하나(= 0000)
-> 비트 연산도 가능
-> 대부분의 프로그래밍 언어에서 사용하는 방식
+  > **2의 보수** : 어떤 수를 2ⁿ으로 만들어 주는 수로 1의 보수를 취한 후, 1을 더해준다.
+  > 0의 표현 방법이 하나(= 0000)
+  > 비트 연산도 가능
+  > 대부분의 프로그래밍 언어에서 사용하는 방식
 
 ![2진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2.png)
 ![2진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2(2).png)
@@ -296,10 +300,10 @@ System.out.println("x << n: " + Integer.toBinaryString(x << n));
 <br>
 
 ### Right Shift Operator(오른쪽 쉬프트 연산) (>>)
-> bit 값을 오른쪽으로 이동  
-> 이동에 따른 빈공간은 음수의 경우엔 1, 양수인 경우엔 0으로 채움  
-> ( x >> n ) = x / 2ⁿ  
-> n이 32이상이면, ( x >> n ) = x / 2^(n % 32)  
+  > bit 값을 오른쪽으로 이동  
+  > 이동에 따른 빈공간은 음수의 경우엔 1, 양수인 경우엔 0으로 채움  
+  > ( x >> n ) = x / 2ⁿ  
+  > n이 32이상이면, ( x >> n ) = x / 2^(n % 32)  
 
 ![Right Shift Operator](https://github.com/MinjuKang727/Java/blob/main/lib/Right_Shift_Operator.png)
 
@@ -346,8 +350,8 @@ System.out.println("x >> n: " + Integer.toBinaryString(x >> n));
 <br>
 
 ### Unsigned Shift Operator (>>>)
-> bit 값을 오른쪽으로 이동(밀어버린 부분을 전부 0으로 챙워줌.)  
-> 음수를 보장하지 않습니다.
+  > bit 값을 오른쪽으로 이동(밀어버린 부분을 전부 0으로 챙워줌.)  
+  > 음수를 보장하지 않습니다.
 
 ![Unsigned Shift Operator(Positive Integer)](https://github.com/MinjuKang727/Java/blob/main/lib/Unsigned_Shift_Operator_positive.png)
 ![Unsigned Shift Operator(Negative Integer)](https://github.com/MinjuKang727/Java/blob/main/lib/Unsinged_Shift_Operator_negative.png)
@@ -376,9 +380,9 @@ System.out.println("x >>> n: " + Integer.toBinaryString(x >>> n));
 <br>
 
 ## Relational Operator(비교 연산자)
-> 변수나 상수의 값을 비교할 때 쓰이는 연산자  
-> 결과가 항상 `true` 또는 `false`인 논리값(Boolean)  
-> `>`, `<`, `>=`, `<=`, `==`, `!=`  
+  > 변수나 상수의 값을 비교할 때 쓰이는 연산자  
+  > 결과가 항상 `true` 또는 `false`인 논리값(Boolean)  
+  > `>`, `<`, `>=`, `<=`, `==`, `!=`  
 
 - **크다** (>)
 
@@ -507,11 +511,11 @@ System.out.println("x >>> n: " + Integer.toBinaryString(x >>> n));
     <br>
 
 ## Bitwise Operator(비트 연산자)
-> 비트(bit) 단위로 논리 연산을 할 때 사용하는 연산자  
-> 비트 단위로 왼쪽이나 오른쪽으로 전체 비트를 이동하거나,  
-> 1의 보수를 만들 때 사용  
-> `&`, `|`, `^`, `~`, 쉬프트 연산자(`>>`, `<<`, `>>>`)  
-*쉬프트 연산자도 비트 연산자에 포함됨*
+  > 비트(bit) 단위로 논리 연산을 할 때 사용하는 연산자  
+  > 비트 단위로 왼쪽이나 오른쪽으로 전체 비트를 이동하거나,  
+  > 1의 보수를 만들 때 사용  
+  > `&`, `|`, `^`, `~`, 쉬프트 연산자(`>>`, `<<`, `>>>`)  
+  *쉬프트 연산자도 비트 연산자에 포함됨*  
 
 - **비트 AND 연산** (&)  
   > 대응되는 비트가 **모두 1이면 1**을 반환  
@@ -656,14 +660,14 @@ System.out.println("x >>> n: " + Integer.toBinaryString(x >>> n));
 | 1 | 0 |   1  |    0    |  1  |
 | 1 | 1 |   1  |    1    |  0  |
 
-[*시프트 연산자는 앞부분 설명 참고*](#shift-operator시프트-연산자)
+[*시프트 연산자는 앞부분 설명 참고*](#shift-operator시프트-연산자)  
 
 
 
 
 ## Logical Operator(논리 연산자)
-> 주어진 논리식을 판단하여 `true(참)`과 `false(거짓)`을 결정하는 연산자  
-> `&&`, `||`, `!`  
+  > 주어진 논리식을 판단하여 `true(참)`과 `false(거짓)`을 결정하는 연산자  
+  > `&&`, `||`, `!`  
 
 ### 논리 연산자의 종류(1)
 - **논리 AND 연산**(논리곱; &&)
@@ -998,7 +1002,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - ***=**
-  > 왼쪽의 피연산자에 오른쪽의 피연산자를 곱한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자에 오른쪽의 피연산자를 곱한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.  
   
   ```java
   int x = 120;
@@ -1023,7 +1027,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **/=**
-  > 왼쪽의 피연산자를 오른쪽의 피연산자로 나눈 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자로 나눈 후, 그 결괏값을 왼쪽의 피연산자에 대입함.  
   
   ```java
   int x = 120;
@@ -1048,7 +1052,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **%=**
-  > 왼쪽의 피연산자를 오른쪽의 피연산자로 나눈 후, 그 나머지를 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자로 나눈 후, 그 나머지를 왼쪽의 피연산자에 대입함.  
   
   ```java
   int x = 120;
@@ -1074,7 +1078,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **&=**
-  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 AND 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 AND 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.  
   
   ```java
   int x = 0B00001111;
@@ -1099,7 +1103,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **|=**
-  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 OR 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 OR 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.  
   
   ```java
   int x = 0B00001111;
@@ -1124,7 +1128,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **^=**
-  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 XOR 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자와 비트 XOR 연산한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.  
   
   ```java
   int x = 0B00001111;
@@ -1149,7 +1153,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **<<=**
-  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.  
   
   ```java
   int x = 0B00001111;
@@ -1188,7 +1192,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **>>=**
-  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.  
   
   ```java
   int x = 0B00001111;
@@ -1227,7 +1231,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 <br>
 
 - **>>>=**
-  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.
+  > 왼쪽의 피연산자를 오른쪽의 피연산자만큼 왼쪽 시프트한 후, 그 결괏값을 왼쪽의 피연산자에 대입함.  
   
     ```java
     int x = 0B00001111;
@@ -1274,7 +1278,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
   ```
   > 물음표(?) 앞의 조건식에 따라  
   > 결괏값이 **참**(**true**) 이면 **반환값 1**을 반환  
-  > 결괏값이 **거짓**(**false**)이면 **반환값2**를 반환
+  > 결괏값이 **거짓**(**false**)이면 **반환값2**를 반환  
 
     
     ```java
@@ -1296,14 +1300,14 @@ System.out.println("results1 != result2 = " + (result1 != result2));
     </details>
 
 - **instanceof Operator**(instanceof 연산자)
-  > 찬조 변수가 참조하고 있는 인스턴스의 실제 타입을 반환해 줍니다.
-  > **해당 객체가 어떤 클래스나 인터페이스로부터 생성되었는지를 판별**
+  > 찬조 변수가 참조하고 있는 인스턴스의 실제 타입을 반환해 줍니다.  
+  > **해당 객체가 어떤 클래스나 인터페이스로부터 생성되었는지를 판별**  
   
   ```java
   INSTANCE_NAME instanceof CLASS_OR_INTERFACE_NAME
   ```
-  > 왼쪽 피연산자인 인스턴스(INSTANCE_NAME)가 오른쪽 피연산자인 클래스나 인터페이스(CLASS_OR_INTERFACE_NAME)로부터 생성되었으면 `true`를 반환
-  > 그렇지 않으면 `false`를 반환
+  > 왼쪽 피연산자인 인스턴스(INSTANCE_NAME)가 오른쪽 피연산자인 클래스나 인터페이스(CLASS_OR_INTERFACE_NAME)로부터 생성되었으면 `true`를 반환  
+  > 그렇지 않으면 `false`를 반환  
 
   ```java
   static class A {}
@@ -1334,7 +1338,7 @@ System.out.println("results1 != result2 = " + (result1 != result2));
 ---
 
 ##### 참고 사이트
-[[java] 비트의 음수 표현과 shift 연산자](https://velog.io/@shjung53/%EB%B9%84%ED%8A%B8%EC%9D%98-%EC%9D%8C%EC%88%98-%ED%91%9C%ED%98%84%EA%B3%BC-shift-%EC%97%B0%EC%82%B0%EC%9E%90)
+[[java] 비트의 음수 표현과 shift 연산자](https://velog.io/@shjung53/%EB%B9%84%ED%8A%B8%EC%9D%98-%EC%9D%8C%EC%88%98-%ED%91%9C%ED%98%84%EA%B3%BC-shift-%EC%97%B0%EC%82%B0%EC%9E%90)  
 [[Java] 자바 연산자 (Java Operator)](https://phantom.tistory.com/19)  
 [[Java] 쉬프트 연산자 <<, <<<](https://93jpark.tistory.com/132)  
 [[JAVA] 비트 쉬프트(Shift)연산자 : << , >> , >>>](https://chans-note.tistory.com/3)  
