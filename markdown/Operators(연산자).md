@@ -767,6 +767,7 @@ System.out.println("results1 || result2 = " + (result1 || result2));
     results1 || result2 = false
 </details>
 <br>
+
 - **논리 NOT 연산**(부정; !)
   > 논리식의 결과가 **참**이면 **거짓**을 반환  
   > 논리식의 결과가 **거짓**이면 **참**을 반환
