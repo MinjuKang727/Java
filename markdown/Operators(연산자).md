@@ -261,10 +261,10 @@
 ![1진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1.png)
 
 #### 2진 보수 방법
-  > **2의 보수** : 어떤 수를 2ⁿ으로 만들어 주는 수로 1의 보수를 취한 후, 1을 더해준다.
-  > 0의 표현 방법이 하나(= 0000)
-  > 비트 연산도 가능
-  > 대부분의 프로그래밍 언어에서 사용하는 방식
+  > **2의 보수** : 어떤 수를 2ⁿ으로 만들어 주는 수로 1의 보수를 취한 후, 1을 더해준다.  
+  > 0의 표현 방법이 하나(= 0000)  
+  > 비트 연산도 가능  
+  > 대부분의 프로그래밍 언어에서 사용하는 방식  
 
 ![2진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2.png)
 ![2진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2(2).png)
