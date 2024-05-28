@@ -244,8 +244,8 @@
 <!-- 십진법 계산 -->
 9 + (-9) = -18  // 계산이 제대로 되지 않는다.
 ```
-[부호 및 크기 방식- 0의 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/Extra_bit_for_sign.png)
-[부호 및 크기 방식- ±6의 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/Extra_bit_for_sign2.png)
+![부호 및 크기 방식- 0의 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/Extra_bit_for_sign.png)
+![부호 및 크기 방식- ±6의 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/Extra_bit_for_sign2.png)
 
 #### 2. 1진 보수 방법
 > **1의 보수** : 어떤 수를 2ⁿ-1로 만들어 주는 수
@@ -253,8 +253,8 @@
 *어떤 수와 반전시킨 수를 더하면 모든 비트가 1로 채워진 2ⁿ-1 이 됨.*
 > 비트 연산을 가능하게 하는 방법이지만 역시 0의 표현 방식이 두가지가 나온다.
 
-[1진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1(2).png)
-[1진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1.png)
+![1진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1(2).png)
+![1진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_1.png)
 
 #### 2진 보수 방법
 > **2의 보수** : 어떤 수를 2ⁿ으로 만들어 주는 수로 1의 보수를 취한 후, 1을 더해준다.
@@ -262,8 +262,8 @@
 > 비트 연산도 가능
 > 대부분의 프로그래밍 언어에서 사용하는 방식
 
-[2진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2.png)
-[2진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2(2).png)
+![2진 보수 방식- 0 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2.png)
+![2진 보수 방식- ±6 표현 방식 설명](https://github.com/MinjuKang727/Java/blob/main/lib/method_in_complement_of_2(2).png)
 
 ### Left Shift Operator(왼쪽 쉬프트 연산) (<<)
 > bit 값을 왼쪽으로 이동(빈 자리는 0으로 대입)  
