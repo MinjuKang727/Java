@@ -1,4 +1,4 @@
-# Java Operator(자바 연산자)
+# Java Operators(자바 연산자)
 
 ## What is Operator?(연산자란?)
 - **Operation**(연산) : 프로그램에서 데이터를 처리하여 결과를 산출하는 것
